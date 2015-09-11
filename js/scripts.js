@@ -5,3 +5,20 @@ var findReplace = function(string, searchWord, replaceWord){
     return replacePhrase;
 
 }
+
+$(document).ready(function() {
+       $("form#findReplace").submit(function(event){
+           var string = ($("input#string").val());
+           var searchWord = ($("input#searchWord").val());
+           var replaceWord = ($("input#replaceWord").val());
+
+           var result = findReplace(string, searchWord, replaceWord);
+
+
+           $(".original").text(string);
+           $(".replacePhrase").text(result);
+
+           $("#results").show();
+           event.preventDefault();
+       });
+   });
